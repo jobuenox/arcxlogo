@@ -1,0 +1,178 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" type="x-icon" href="Favicon.png" sizes="32x32">
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>ARCX</title>
+
+    <!-- FAVICONS (replace paths with your files) -->
+  <!-- Favicon -->
+<!-- Favicon (same folder as HTML) -->
+
+
+
+
+    <!-- Google Font: Georama -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Georama:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+    <!-- Bootstrap CSS -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      crossorigin="anonymous"
+    />
+
+    <!-- Your CSS -->
+    <link rel="stylesheet" href="logoarcx.css" />
+  </head>
+
+  <body>
+    <!-- NAVBAR -->
+    <nav class="navbar border-bottom">
+      <div class="container-fluid px-3">
+        <a class="navbar-brand d-flex align-items-center gap-2 fw-bold" href="Favicon.png">
+          <!-- favicon before ARCX -->
+          <img src="Favicon.png" alt="" class="brand-favicon" width="22" height="22" />
+          <span>ARCX</span>
+        </a>
+
+        <div class="d-flex align-items-center gap-2 ms-auto">
+          <button id="themeToggle" class="btn btn-sm btn-outline-secondary" type="button" aria-label="Toggle light and dark mode">
+            <span class="theme-icon" aria-hidden="true">⏾</span>
+          </button>
+
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+            data-bs-target="#mainNav" aria-controls="mainNav" aria-expanded="false"
+            aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+        </div>
+
+        <div class="collapse navbar-collapse" id="mainNav">
+          <!-- optional nav items -->
+        </div>
+      </div>
+    </nav>
+
+    <!-- MAIN -->
+    <main class="page-center container text-center py-5">
+      <header class="mb-3">
+        <h1 class="display-6 fw-bold mb-2">LOGOS</h1>
+      </header>
+
+      <!-- LOGO GRID -->
+      <section class="row g-4 mt-2" aria-label="Logo Variations">
+        <!-- 1: Black & White (on light) -->
+        <div class="col-12 col-sm-6 col-lg-3">
+          <article class="card h-100">
+            <div class="card-header d-flex justify-content-between">
+              <span class="fw-semibold">Black &amp; White</span>
+            <small class="text-muted">Primary Brand Logo</small>
+            </div>
+            <div class="card-body d-flex justify-content-center align-items-center">
+              <figure class="logo-pad pad-light">
+                <img src="Blackwhite.png" class="img-fluid" alt="ARCX logo in black on white">
+              </figure>
+            </div>
+          </article>
+        </div>
+
+        <!-- 2: Reversed (white on dark) -->
+        <div class="col-12 col-sm-6 col-lg-3">
+          <article class="card h-100">
+            <div class="card-header d-flex justify-content-between">
+              <span class="fw-semibold">Reversed</span>
+              <small class="text-muted">Change - Dark and Light Mode</small>
+
+            </div>
+            <div class="card-body d-flex justify-content-center align-items-center">
+              <figure class="logo-pad pad-dark">
+                <img src="Reverse.png" class="img-fluid" alt="ARCX logo in white on dark">
+              </figure>
+            </div>
+          </article>
+        </div>
+
+        <!-- 3: Full Color -->
+        <div class="col-12 col-sm-6 col-lg-3">
+          <article class="card h-100">
+            <div class="card-header d-flex justify-content-between">
+              <span class="fw-semibold">Full Color</span>
+              <small class="text-muted"> Ads </small>
+            </div>
+            <div class="card-body d-flex justify-content-center align-items-center">
+              <figure class="logo-pad pad-color">
+                <img src="Color.png" class="img-fluid" alt="ARCX logo in full color">
+              </figure>
+            </div>
+          </article>
+        </div>
+
+        <!-- 4: Favicon / App Icon -->
+        <div class="col-12 col-sm-6 col-lg-3">
+          <article class="card h-100">
+            <div class="card-header d-flex justify-content-between">
+              <span class="fw-semibold">Favicon</span>
+              <small class="text-muted">Header and Tab Icon</small>
+            </div>
+            <div class="card-body d-flex justify-content-center align-items-center">
+              <figure class="logo-pad pad-favicon">
+                <img src="Favicon.png" class="img-fluid" alt="ARCX favicon icon">
+              </figure>
+            </div>
+          </article>
+        </div>
+      </section>
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="site-footer text-center mt-auto">
+      <div class="container py-3">
+        <p class="mb-0">
+          &copy; <span id="year"></span> ARCX |
+          <a href="mailto:jbuenobr@depaul.edu">jbuenobr@depaul.edu</a>
+        </p>
+      </div>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+      crossorigin="anonymous">
+    </script>
+
+    <!-- Theme + year script -->
+    <script>
+      (function () {
+        // Year
+        document.getElementById('year').textContent = new Date().getFullYear();
+
+        // Theme setup
+        const root = document.documentElement;
+        const btn  = document.getElementById('themeToggle');
+        const key  = 'arcx_theme';
+        const saved = localStorage.getItem(key);
+        if (saved === 'light' || saved === 'dark') root.setAttribute('data-theme', saved);
+
+        const updateIcon = () => {
+          const mode = root.getAttribute('data-theme');
+          btn.querySelector('.theme-icon').textContent = mode === 'dark' ? '⏾' : '𖤓';
+          btn.setAttribute('aria-pressed', mode === 'dark' ? 'true' : 'false');
+        };
+        updateIcon();
+
+        btn.addEventListener('click', () => {
+          const current = root.getAttribute('data-theme') || 'dark';
+          const next = current === 'dark' ? 'light' : 'dark';
+          root.setAttribute('data-theme', next);
+          localStorage.setItem(key, next);
+          updateIcon();
+        });
+      })();
+    </script>
+  </body>
+</html>
+

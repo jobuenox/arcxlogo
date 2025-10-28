@@ -1,0 +1,118 @@
+/* ARCX — Logo Page Styles */
+:root {
+    /* LIGHT THEME (default) */
+    --bg: #f7f8fb;
+    --ink: #0e1320;
+    --muted: #586174;
+    --card: #ffffff;
+    --line: #ffffff;           /* footer top line (white as requested) */
+    --accent: black;
+    --pad-light: #ffffff;
+    --pad-dark: #0e1320;
+    --pad-color-a: #f8fafc;
+    --pad-color-b: #e8eef6;
+    --shadow: 0 10px 26px rgba(0,0,0,.08);
+    --radius: 16px;
+    --border: 1px solid rgba(0,0,0,.08);
+  }
+  
+  /* DARK THEME OVERRIDES */
+  html[data-theme="dark"] {
+    --bg: #000000;             /* fully black background */
+    --ink: white;
+    --muted: white;
+    --card: #0a0a0a;           /* dark gray cards on black background */
+    --line: #ffffff;           /* keep white divider */
+    --accent: white;
+    --pad-light: #ffffff;
+    --pad-dark: #000000;
+    --pad-color-a: #0a0a0a;
+    --pad-color-b: #1a1a1a;
+    --shadow: 0 10px 30px rgba(0,0,0,.7);
+    --border: 1px solid rgba(255,255,255,.08);
+  }
+  
+  html, body { height: 100%; }
+  body {
+    margin: 0;
+    font-family: 'Georama', system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, 'Helvetica Neue', Arial, sans-serif;
+    background: linear-gradient(180deg, var(--bg), var(--pad-color-a) 75%);
+    color: var(--ink);
+    display: grid;
+    grid-template-rows: auto 1fr auto;
+    min-height: 100dvh;
+  }
+  
+  /* Navbar */
+  .navbar {
+    background: var(--card);
+    box-shadow: var(--shadow);
+  }
+  .navbar .navbar-brand { color: var(--ink); }
+  .navbar .navbar-brand:hover { opacity: .9; }
+  .brand-favicon { border-radius: 6px; box-shadow: 0 0 0 1px rgba(0,0,0,.06); }
+  
+  /* Ensure toggler icon is visible in both themes */
+  .navbar-toggler .navbar-toggler-icon {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3E%3Cpath stroke='rgba(231,236,243,1)' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
+  }
+  
+  /* Cards + logo pads */
+  .card {
+    background: var(--card);
+    border: var(--border);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+  }
+  .card-header {
+    background: transparent;
+    border-bottom: var(--border);
+    color: var(--ink);
+  }
+  .card-body { min-height: 200px; }
+  
+  .logo-pad {
+    width: 100%;
+    max-width: 560px;
+    aspect-ratio: 16/7;
+    display: grid;
+    place-items: center;
+    border-radius: 14px;
+    border: 1px dashed rgba(148,163,184,.35);
+    margin: 0;
+  }
+  .pad-light { background: var(--pad-light); }
+  .pad-dark  { background: var(--pad-dark); }
+  .pad-color {
+    background: linear-gradient(135deg, var(--pad-color-a), var(--pad-color-b));
+  }
+  .pad-favicon {
+    background: var(--pad-light);
+    aspect-ratio: 1 / 1;
+    max-width: 160px;
+  }
+  
+  /* Footer with WHITE divider line */
+  .site-footer {
+    background: var(--card);
+    border-top: 1px solid var(--line); /* explicitly white */
+    color: var(--ink);
+  }
+  .site-footer a { color: var(--accent); text-decoration: none; }
+  .site-footer a:hover { text-decoration: underline; }
+  
+  /* Type */
+  h1, .display-6 { letter-spacing: .2px; }
+  
+  /* Utilities */
+  .page-center { display: grid; place-items: start center; }
+  
+  /* Responsive tweaks */
+  @media (max-width: 575.98px) {
+    .card-body { min-height: 160px; }
+  }
+  @media (min-width: 992px) {
+    .card-body { min-height: 220px; }
+  }
+  
+  
